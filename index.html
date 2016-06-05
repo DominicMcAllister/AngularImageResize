@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="testApp">
+
+<head>
+    <script data-require="angular.js@1.5.6" data-semver="1.5.6" src="https://code.angularjs.org/1.5.6/angular.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+    <script src="upload.js"></script>
+</head>
+
+<body ng-controller="AppController">
+    <h1>Upload File Test</h1>
+
+    <form action='' method='POST' enctype='multipart/form-data'>
+        <input type='file' accept="image/*" on-file-select="selectFile($files)"><br>
+    </form>
+    <div>Processing: {{isProcessing}} </div>
+
+    <br/>
+    <div><img border="1" ng-src="{{imageSrc}}" /></div>
+    <div>Size: {{imageSrc.length / 1024 | number:2 }} KB</div>
+    <div>Dimensions: {{imageWidth}}w X {{imageHeight}}h</div>
+
+    <br />
+    <div>Resized:</div>
+    <img border="1" ng-src="{{resizedSrc}}" />
+    <div>Size: {{resizedSrc.length / 1024 | number:2 }} KB</div>
+    <div>Dimensions: {{newWidth}}w X {{newHeight}}h</div>
+
+</body>
+
+</html>
